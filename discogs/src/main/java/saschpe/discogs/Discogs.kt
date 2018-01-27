@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import saschpe.alphaplus.BuildConfig
 import saschpe.discogs.service.DatabaseService
 import saschpe.discogs.service.ReleaseService
 
