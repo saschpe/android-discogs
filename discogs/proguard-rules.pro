@@ -23,6 +23,11 @@
     java.lang.Object readResolve();
 }
 
+-dontwarn javax.annotation.**
+
+# OkIO
+-dontwarn okio.**
+
 # Retrofit
 # Retain generic type information for use by reflection by converters and adapters.
 -keepattributes Signature
@@ -32,3 +37,4 @@
 }
 # Ignore annotation used for build tooling.
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
