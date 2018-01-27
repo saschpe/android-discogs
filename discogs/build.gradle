@@ -29,6 +29,7 @@ if (localPropertiesFile.file) {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
@@ -58,6 +59,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.21'
 
     // Test dependencies
     testImplementation 'junit:junit:4.12'
