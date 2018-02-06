@@ -4,14 +4,37 @@
 [![Build Status](https://travis-ci.org/saschpe/android-discogs.svg?branch=master)](https://travis-ci.org/saschpe/android-discogs)
 <a href="http://www.methodscount.com/?lib=saschpe.android%3Aandroid-discogs%3A0.1.3"><img src="https://img.shields.io/badge/Methods and size-core: 100 | deps: 19640 | 25 KB-e91e63.svg"/></a>
 
-
 You can find the full Discogs API description here:
 
 - https://www.discogs.com/developers
 
-
 # Usage
-TODO
+```kotlin
+val discogs = Discogs("my-user-agent", key = "my-key", secret = "my-secret")
+
+// Search the Discogs database for album / artist...
+discogs.database
+    .search(hashMapOf(
+        SEARCH_ARTIST to "Nine Inch Nails",
+        SEARCH_TRACK to "La Mer"))
+    .enqueue(object : Callback<Search> {
+        override fun onFailure(call: Call<Search>, t: Throwable) {}
+
+        override fun onResponse(call: Call<Search>, response: Response<Search>) {
+            val search = response.body()
+            // Do something with the search result...
+        })
+
+// Query a particular release...
+discogs.release
+    .release("123141231")
+    .enqueue(object : Callback<Release> {
+        override fun onFailure(call: Call<Release>, t: Throwable) {}
+
+        override fun onResponse(call: Call<Release>, response: Response<Release>) {
+            val release = response.body()
+        })
+```
 
 # Download
 ```groovy
@@ -20,6 +43,8 @@ implementation 'saschpe.android:discogs:0.1.3'
 
 Snapshots of the development version are available in [Sonatype's `snapshots` repository][snap].
 
+# Users
+* [Alpha+ Player](https://play.google.com/store/apps/details?id=saschpe.alphaplus)
 
 # License
 
